@@ -43,6 +43,29 @@
     });
 
     function showAd() {
+      ad.show({
+        onClose: () => {
+          console.log("Ad closed");
+        },
+        onError: () => {
+          alert("No ads available, try again in a few seconds");
+        }
+      });
+    }
+
+    Telegram.WebApp.ready();
+  </script>
+
+</body>
+</html>
+  <button onclick="showAd()">Start Now</button>
+
+  <script>
+    const ad = new Adsgram({
+      blockId: "int-19856"
+    });
+
+    function showAd() {
       ad.show();
     }
 
