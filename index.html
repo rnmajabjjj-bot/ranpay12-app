@@ -1,108 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>TonEarn</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>TonEarn Mini App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="https://sad.adsgram.ai/js/ads.js"></script>
+  <!-- Telegram SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f6f8fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-#box {
-  text-align: center;
-}
-button {
-  background: #0088cc;
-  color: white;
-  padding: 14px 32px;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-}
-</style>
+  <!-- Adsgram SDK -->
+  <script src="https://sad.adsgram.ai/js/ads.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    h1 { margin-bottom: 10px; }
+
+    button {
+      background: #0088cc;
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-<div id="box">
-  <h2>Welcome to TonEarn ✨</h2>
-  <p>Tap the button below 👇</p>
-  <button id="start">Start Now</button>
-</div>
 
-<script>
-Telegram.WebApp.ready();
-
-const ad = new Adsgram({ blockId: "int-19856" });
-
-document.getElementById("start").onclick = function () {
-  ad.show({
-    onError: () => alert("No ads yet. Try again in a moment.")
-  });
-};
-</script>
-
-</body>
-</html>Telegram.WebApp.ready();
-
-const ad = new Adsgram({
-  blockId: "int-19856"
-});
-
-document.getElementById("startBtn").onclick = () => {
-  ad.show({
-    onError: () => {
-      alert("No ads available yet. Try again in 10 seconds.");
-    }
-  });
-};
-</script>
-</body>
-</html>
-  <button onclick="showAd()">Start Now</button>
+  <div class="box">
+    <h1>Welcome to TonEarn ✨</h1>
+    <p>Tap the button below 👇</p>
+    <button id="startBtn">Start Now</button>
+  </div>
 
   <script>
-    const ad = new Adsgram({
-      blockId: "int-19856"
-    });
+    Telegram.WebApp.ready();
 
-    function showAd() {
+    const ad = new Adsgram({ blockId: "int-19856" });
+
+    document.getElementById("startBtn").onclick = () => {
       ad.show({
-        onClose: () => {
-          console.log("Ad closed");
-        },
         onError: () => {
-          alert("No ads available, try again in a few seconds");
+          alert("No ads available yet. Try again in 10 seconds.");
         }
       });
-    }
-
-    Telegram.WebApp.ready();
-  </script>
-
-</body>
-</html>
-  <button onclick="showAd()">Start Now</button>
-
-  <script>
-    const ad = new Adsgram({
-      blockId: "int-19856"
-    });
-
-    function showAd() {
-      ad.show();
-    }
-
-    Telegram.WebApp.ready();
+    };
   </script>
 
 </body>
