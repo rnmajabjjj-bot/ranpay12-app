@@ -5,7 +5,7 @@
   <title>TonEarn Mini App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Telegram SDK -->
+  <!-- Telegram Mini App SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <!-- Adsgram SDK -->
@@ -13,21 +13,17 @@
 
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #f6f8fb;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
-
-    .box {
+    .container {
       text-align: center;
     }
-
-    h1 { margin-bottom: 10px; }
-
     button {
       background: #0088cc;
       color: white;
@@ -42,22 +38,22 @@
 
 <body>
 
-  <div class="box">
-    <h1>Welcome to TonEarn ✨</h1>
+  <div class="container">
+    <h2>Welcome to TonEarn ✨</h2>
     <p>Tap the button below 👇</p>
-    <button id="startBtn">Start Now</button>
+    <button id="start">Start Now</button>
   </div>
 
   <script>
     Telegram.WebApp.ready();
 
-    const ad = new Adsgram({ blockId: "int-19856" });
+    const ad = new Adsgram({
+      blockId: "int-19856"
+    });
 
-    document.getElementById("startBtn").onclick = () => {
+    document.getElementById("start").onclick = () => {
       ad.show({
-        onError: () => {
-          alert("No ads available yet. Try again in 10 seconds.");
-        }
+        onError: () => alert("No ads available yet. Try again later.")
       });
     };
   </script>
